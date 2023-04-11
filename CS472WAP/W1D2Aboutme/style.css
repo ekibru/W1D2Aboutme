@@ -1,0 +1,51 @@
+
+body{
+    background-color: rgb(105, 92, 76);
+    
+}
+h1{
+    color: lightblue;
+}
+h2{
+    color: lightblue;
+}
+p{
+
+}
+p,h4,li{
+    color: white;
+}
+.mood{
+    display: grid;
+    grid-template-columns: .1fr 1fr  .1fr 1fr;
+    width: 300px;
+   
+}
+
+.text{
+    align-self: last baseline;
+    font-size: 20px;
+    color: white;
+}
+.imdb{
+    color: rgb(164, 12, 12);
+}
+.sad{
+    
+    width: 300px;
+   
+}
+
+.logo{
+    width: 90px;
+}
+.validator{
+    display: grid;
+    grid-template-columns: 0fr .1fr;
+   margin-left: 1000px;
+   margin-bottom: 30px;
+    
+}
+.more{
+  color: red;
+}

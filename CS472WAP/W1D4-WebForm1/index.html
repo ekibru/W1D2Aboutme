@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Form 1</title>
+    <!-- CSS link for bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/cerulean/bootstrap.min.css"
+      integrity="sha512-1rXsIsq9uaj3bxRth2+Mw1slRDxuPzGlfJ8PaLmkO3/OtvCL7jVQrdxaC1VvCmCzKRMdKu0pmbCtqQz/3/xORA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- MY CSS Link-->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+        <main>
+        <fieldset class="field">
+            <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+                >
+                <input
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+                >
+                <input
+                type="password"
+                placeholder="Password"
+                class="form-control"
+                id="exampleInputPassword1"
+                />
+            </div>
+            <div class="mb-3 form-check">
+                <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+                >
+            </div>
+            <button type="submit" class="btn-btn-primary">Submit</button>
+            </form>
+        </fieldset>
+        </main>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+body{
+    background-color: rgba(241, 237, 237, 0.485);
+    padding-bottom: 200px;
+}
+.main,
+.header,
+.right,
+.left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 1em;
+    padding-right: 10px;
+}
+
+.right{
+column-gap: 1em;
+}
+
+
+.img{
+    width: 34px;
+    border-radius: 17px;
+}
+#span{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+   
+    
+}
+#heading{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px; 
+    background-color: rgba(55, 71, 119);
+    height: 130px;
+    color: white;
+    
+}
+
+.azure{
+
+    width: 70px;
+    align-items: center;
+    
+  
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 100px;
+    
+}
+.input{
+    width: 300px;
+    height: 26px;
+    margin-top: 4px;
+    margin-bottom: 22px;
+}
+
+.l{
+
+    display: flex;
+    justify-content: center;
+}
+.lo{
+    margin-bottom: 10px;
+}
+.pass{
+    
+    color: rgb(59, 193, 237);
+    
+    
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 90px;
+    padding-bottom: 12px;
+    
+    
+}
+
+.button{
+    width: 300px;
+    height: 36px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.buttonaz{
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+.bot{
+    display: flex;
+    padding-top: 40px;
+    padding-left: 100px;
+    column-gap: 1em;
+}
+.tic{
+    color: white;
+    background-color: black;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.emp{
+    color: rgb(59, 193, 237);
+    
+}
+.parag{
+padding-right: 150px;
+padding-top:10px ;
+
+}

@@ -1,0 +1,36 @@
+
+    
+      .field {
+        margin-top: 100px;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      input::placeholder {
+        font-size: 20px;
+      }
+      .form-control {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        border-color: rgb(246, 240, 240);
+        box-shadow: inset 0px 0.4px 2px;
+      }
+      .form-label,
+      .form-check-label {
+        font-size: 20px;
+      }
+      .form-label {
+      }
+      .form-check-label {
+        font-family: "Times New Roman", Times, serif;
+      }
+      .btn-btn-primary {
+        background-color: #1d2cf3;
+        width: 120px;
+        height: 60px;
+        border-radius: 8px;
+        color: white;
+        font-size: 20px;
+        padding-right: 10px;
+      }
+    
