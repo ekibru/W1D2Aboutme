@@ -1,0 +1,29 @@
+.image2{
+    width: 200px;
+    border-radius: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.lab{
+    color: rgb(98, 33, 8);
+}
+.home{
+    color: blue;
+}
+.profile{
+   
+    background-image: url("image2/CSVSJS.png");
+}
+
+p{
+   margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.copy{
+    color: blue;
+}
+.validator{
+    
+    margin-left: 600px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Form 2</title>
+    <!-- MY CSS Link-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS Link-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/cerulean/bootstrap.min.css"
+      integrity="sha512-1rXsIsq9uaj3bxRth2+Mw1slRDxuPzGlfJ8PaLmkO3/OtvCL7jVQrdxaC1VvCmCzKRMdKu0pmbCtqQz/3/xORA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+</head>
+<body>
+  <!--  Header   -->
+    <header>
+      
+        <div class="header">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"
+                >MUM Golden Dome Market : : : SRM System</a
+              >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" 
+                      >&#124; 
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> Products </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">&#124; </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Supplier</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                 <label> Hello&#33</label>
+                  <button class="btn btn-secondary my-2 my-sm-0" type="sign out">
+                    Sign Out
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!--    Main Body-->
+
+      <main>
+        <div >
+         <p class="new-product">New Product Form</p> 
+        </div>
+  
+  
+        <div class="main">
+           <!-- left Side Form--> 
+          <div class="left">
+            
+            <fieldset>
+              <div class="form-group">
+                <fieldset >
+                  <label class="form-label" for="disabledInput"
+                    >Product Number</label
+                  >
+                  <input
+                    class="form-control"                 
+                    type="text"
+                    placeholder=""
+                  />
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput"
+                    >Name</label
+                  >
+                  <input
+                    class="form-control"
+                    
+                    type="text"                 
+                  />
+                </fieldset>
+              </div>
+  
+              <div class="form-group has-success">
+                <label class="form-label mt-4" for="inputValid"
+                  >Unit Price</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                 
+                />
+                <div class="valid-feedback">Success! You've done it.</div>
+              </div>
+            </fieldset>
+  
+          </div>
+         <!-- Right Side Form--> 
+          <div class="right">
+            <fieldset>
+              <div class="form-group">
+                <fieldset >
+                  <label class="form-label" for="disabledInput"
+                    >Quantity in stock</label
+                  >
+                  <input
+                    class="form-control"
+                    id="disabledInput"
+                    type="text"
+                    placeholder="0"
+                    
+                  />
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput"
+                    >Supplier&#58</label
+                  >
+                  <input
+                    class="form-control"
+                    id="readOnlyInput"
+                    type="text"
+                    placeholder="Select a supplier"
+                    
+                  />
+                </fieldset>
+              </div>
+              <div class="form-group has-success">
+                <label class="form-label mt-4" 
+                  >Date supplied</label
+                >
+                <input
+                  type="date"                
+                  class="form-control"
+                  
+                />
+                <p >Enter a valid Date</p>
+               
+              </div>
+               <!-- Bottom  Side Button --> 
+
+              <div class="bottom">
+                <button  type="Reset" class="reset">
+                  Reset
+                </button>
+                <button type="cancel" class="cancel">
+                  Cancel
+                </button>
+                <button type="add" class="add">
+                  Add
+                </button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </main>
+</body>
+</html>
