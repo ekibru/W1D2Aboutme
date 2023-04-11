@@ -87,4 +87,6 @@ span{
   .upcoming{
     color: red;
   }
-
+.v:hover{
+  background-color: white;
+}
