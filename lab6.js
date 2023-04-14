@@ -37,6 +37,6 @@ console.log(this.title + ": " + student
 }
 };
 
-group.showList()
+group.showList();
 
 
