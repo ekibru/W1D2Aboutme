@@ -2,10 +2,14 @@ body {
     padding: 5px;
     font-family: 'Times New Roman', Times, serif;
     padding-bottom: 20px;
+
     background-color: #EDF1FF;
+   
     
   }
-  
+  .main{
+    background-image: url('brikbc.jpg');
+  }
   header {
   
     border-radius: 5px;
