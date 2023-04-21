@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 11</title>
+</head>
+<style>
+    body{
+        padding-bottom: 100px;
+        background-color: lightcyan;
+    }
+    p{
+       padding-left: 100px;
+       color: brown;
+    }
+    .pre{
+
+        text-align: center;
+        
+    }
+    .qu{
+        background-color: lightgreen;
+    }
+    h1{
+        
+        color: blue;
+    }
+</style>
+<body>
+
+
+<pre class="pre">
+    <h1>Lab 11</h1>
+    <div>
+
+        <p>Array Sort Method for Even</p>
+          Array.prototype.even = function() {
+            return this.filter(num => num % 2 === 0);
+          };
+          
+        <p>Array Sort Method for Odd</p>
+          Array.prototype.odd = function() {
+            return this.filter(num => num % 2 !== 0);
+          };
+          
+          <p>Test</p>
+          const arr = [1,2,3,4,5,6,7,8];
+          console.log(arr.even()); // [2,4,6,8]
+          console.log(arr.odd()); // [1,3,5,7]
+
+    </div>
+</pre>
+
+    
+    <pre >
+
+
+
+
+<div class="qu">
+    <p>
+        Question 2 Answer;
+    </p>
+    1. Explain why do we want sometimes to use setImmediate instead of using setTimeout?
+       <strong style="color: blue;">setImmediate</strong>   schedules a function to execute in the next iteration of the event loop immediately after the current operation completes, 
+          while <strong style="color: blue;" >setTimeout</strong>  schedules a function to execute after a specified delay.
+
+    
+    2. Explain the difference between process.nextTick and setImmediate?
+       <strong style="color: blue;">process.nextTick </strong>  schedules a function to execute before any I/O or timer events in the current iteration of the event loop,
+         while <strong style="color: blue;">setImmediate</strong>  schedules a function to execute after any pending I/O or timer events in the next iteration of 
+
+
+    3. Does Node.js has window object?
+         No, Node.js does not have a window object.
+</pre>
+<footer>
+    &copy;<span>Ephrem Kidane</span>
+</footer>
+</div>
+        
+    
+    
+</body>
+</html>
