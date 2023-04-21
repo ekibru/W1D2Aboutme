@@ -7,6 +7,9 @@ body {
    
     
   }
+  .head{
+    background-color:lightblue;
+  }
   .main{
     background-image: url('brikbc.jpg');
   }
@@ -49,7 +52,10 @@ body {
     border-radius: 50px;
   }
   h2{
-    color: blue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 46px;
     padding-top: 20px;
    padding-left: 100px;
   }
@@ -58,11 +64,18 @@ body {
     display: inline-flex;
     margin-right: 50px;
   }
-  .right {
+  .right,.pro{
     display: inline-flex;
     margin-right: 50px;
     
     
+  }
+  div.pro ul li>a{
+    color: blue;
+  }
+  div.pro ul li>a:hover{
+    color: red;
+    background-color: lightgreen;
   }
   
   .dayList a  {
@@ -94,4 +107,8 @@ span{
   }
 .v:hover{
   background-color: white;
+}
+.sectionHeading{
+  font-size: 30px;
+  
 }
