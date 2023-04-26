@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12</title>
+</head>
+<body>
+    <pre>
+ 
+        Answer 1:
+
+        To create a web server that sends an image as a response, we can use the http module in Node.js. Here's an example code:
+        
+        javascript
+        Copy code
+        const http = require('http');
+        const fs = require('fs');
+        
+        const server = http.createServer((req, res) => {
+          if (req.url === '/image') {
+            const imgStream = fs.createReadStream('path/to/image.jpg');
+            res.setHeader('Content-Type', 'image/jpeg');
+            imgStream.pipe(res);
+          } else {
+            res.statusCode = 404;
+            res.end('404 Not Found');
+          }
+        });
+        
+        server.listen(3000, () => {
+          console.log('Server is running on port 3000');
+        });
+
+        <!---------------------------------------------------->
+        In this code, we create an HTTP server using the createServer method of the http module. When the client sends a request to the server with the URL path /image, the server reads the image file using the createReadStream method of the fs module and pipes the stream to the response using the pipe method. The setHeader method is used to set the content type of the response to image/jpeg. If the client sends a request with any other URL path, the server responds with a 404 status code and a "404 Not Found" message.
+        
+        Note that you need to replace the path/to/image.jpg with the actual path to your image file.
+        
+        Answer 2:
+        
+        To create an npm project and install Express.js, you need to follow these steps:
+        
+        Open a command prompt or terminal window and navigate to the directory where you want to create your project.
+        Run the following command to initialize a new npm project:
+        csharp
+        Copy code
+        npm init
+        This will create a package.json file in your project directory.
+        
+        Install Express.js and Nodemon (if you want) as dependencies using the following commands:
+        css
+        Copy code
+        npm install express --save
+        css
+        Copy code
+        npm install nodemon --save-dev
+        The --save option is used to add the dependencies to the dependencies section of the package.json file, while the --save-dev option is used to add the dependencies to the devDependencies section.
+        
+        Create a new file called app.js in your project directory and add the following code:
+        javascript
+        Copy code
+        const express = require('express');
+        const app = express();
+        
+        app.use(express.json());
+        
+        const courses = [
+          { id: 1, name: 'Course 1' },
+          { id: 2, name: 'Course 2' },
+          { id: 3, name: 'Course 3' },
+        ];
+        
+        app.get('/courses', (req, res) => {
+          res.send(courses);
+        });
+        
+        app.post('/courses', (req, res) => {
+          const course = {
+            id: courses.length + 1,
+            name: req.body.name,
+          };
+          courses.push(course);
+          res.send(course);
+        });
+        
+        app.get('/courses/:id', (req, res) => {
+          const course = courses.find(c => c.id === parseInt(req.params.id));
+          if (!course) return res.status(404).send('Course not found');
+          res.send(course);
+        });
+        
+        app.use((err, req, res, next) => {
+          console.error(err.stack);
+          res.status(500).send('Something went wrong');
+        });
+        
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => console.log(`Listening on port ${port}...`));
+        In this code, we import the Express.js module, create an instance of the express object, and configure the server to use JSON data.
+        
+                              
+
+                                                     
+                                      
+                                                                      
+    </pre>
+</body>
+</html>
