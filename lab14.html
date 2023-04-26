@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 14</title>
+
+    <style>
+        body{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab 14 Implimentation Answers Only </h1>
+    <pre>
+                                const bookList = document.querySelector('ul');
+
+                        fetch('http://localhost:3000/books')
+                        .then(response => response.json())
+                        .then(books => {
+                            books.forEach(book => {
+                            const li = document.createElement('li');
+                            li.textContent = `${book.title} - ${book.description} - ${book.price}`;
+                            bookList.appendChild(li);
+                            });
+                        })
+                        .catch(error => console.error(error));
+
+       --------------------------------------------------------------------------------------------------
+       
+                    <h1>Add a new book when the "Submit" button is clicked:</h1>
+
+
+                            const addForm = document.querySelector('#add-form');
+                        const titleInput = document.querySelector('#title-input');
+                        const descInput = document.querySelector('#description-input');
+                        const priceInput = document.querySelector('#price-input');
+
+                        addForm.addEventListener('submit', event => {
+                        event.preventDefault();
+                        
+                        const newBook = {
+                            title: titleInput.value,
+                            description: descInput.value,
+                            price: priceInput.value
+                        };
+                        
+                        fetch('http://localhost:3000/books', {
+                            method: 'POST',
+                            headers: {
+                            'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(newBook)
+                        })
+                            .then(response => response.json())
+                            .then(book => {
+                            const li = document.createElement('li');
+                            li.textContent = `${book.title} - ${book.description} - ${book.price}`;
+                            bookList.appendChild(li);
+                            titleInput.value = '';
+                            descInput.value = '';
+                            priceInput.value = '';
+                            })
+                            .catch(error => console.error(error));
+                        });
+
+--------------------------------------------------------------------------------------------------
+
+            <h3>Edit a book when the "Update" button is clicked:</h3>
+
+
+                                        const editForm = document.querySelector('#edit-form');
+                            const editTitleInput = document.querySelector('#edit-title-input');
+                            const editDescInput = document.querySelector('#edit-description-input');
+                            const editPriceInput = document.querySelector('#edit-price-input');
+                            let bookIdToUpdate;
+
+                            bookList.addEventListener('click', event => {
+                            if (event.target.tagName === 'BUTTON') {
+                                const button = event.target;
+                                const li = button.parentNode;
+                                const bookData = li.textContent.split(' - ');
+                                const bookId = li.dataset.id;
+                                bookIdToUpdate = bookId;
+                                editTitleInput.value = bookData[0];
+                                editDescInput.value = bookData[1];
+                                editPriceInput.value = bookData[2];
+                                editForm.classList.remove('hidden');
+                            }
+                            });
+
+                            editForm.addEventListener('submit', event => {
+                            event.preventDefault();
+                            
+                            const updatedBook = {
+                                title: editTitleInput.value,
+                                description: editDescInput.value,
+                                price: editPriceInput.value
+                            };
+                            
+                            fetch(`http://localhost:3000/books/${bookIdToUpdate}`, {
+                                method: 'PUT',
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(updatedBook)
+                            })
+                                .then(response => response.json())
+                                .then(book => {
+                                const li = document.querySelector(`li[data-id="${bookIdToUpdate}"]`);
+                                li.textContent = `${book.title} - ${book.description} - ${book.price}`;
+                                editForm.classList.add('hidden');
+                                editTitleInput.value = '';
+                                editDescInput.value = '';
+                                editPriceInput.value = '';
+                                })
+                                .catch(error => console.error(error));
+                            });
+
+
+--------------------------------------------------------------------------------------------------------
+
+<h3>Remove a book when the "Delete" button is clicked:</h3>
+
+                        bookList.addEventListener('click', event => {
+                            if (event.target.tagName === 'BUTTON') {
+                            const button = event.target;
+                            const li = button.parentNode;
+                            const bookId = li.dataset.id;
+                            
+                            fetch(`http://localhost:3000/books/${bookId}`, {
+                                method: 'DELETE'
+                            })
+                                .then(response => {
+                                if (response.ok) {
+                                    li.remove();
+                                }
+                                })
+                                .catch(error => console.error(error));
+                            }
+                        });
+                                                
+                                    
+
+    </pre>
+</body>
+</html>
