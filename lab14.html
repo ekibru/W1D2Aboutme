@@ -3,146 +3,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 14</title>
-
+    <title>Lab 13</title>
     <style>
-        body{
-            background-color: lightblue;
-        }
+       .rd{
+        background-color: lightyellow;
+       }
+       .wd{
+        background-color: rgb(147, 202, 220);
+       }
     </style>
 </head>
 <body>
-    <h1>Lab 14 Implimentation Answers Only </h1>
-    <pre>
-                                const bookList = document.querySelector('ul');
 
-                        fetch('http://localhost:3000/books')
-                        .then(response => response.json())
-                        .then(books => {
-                            books.forEach(book => {
-                            const li = document.createElement('li');
-                            li.textContent = `${book.title} - ${book.description} - ${book.price}`;
-                            bookList.appendChild(li);
-                            });
-                        })
-                        .catch(error => console.error(error));
+    <h1>Lab 14 Assignments</h1>
+    <pre class="rd">
+        To implement the features mentioned above, you will need to use JavaScript to interact with the DOM and make API requests to the shoppingcart-server. Here is a sample code that can help you get started:
 
-       --------------------------------------------------------------------------------------------------
-       
-                    <h1>Add a new book when the "Submit" button is clicked:</h1>
+List all books in index.html when open index.html in the browser
+To display all books on the index page, you can make an API request to the server using the fetch() method and display the returned data in a table.
+js
+Copy code
+// main.js
 
+const tableBody = document.querySelector('#table-body');
 
-                            const addForm = document.querySelector('#add-form');
-                        const titleInput = document.querySelector('#title-input');
-                        const descInput = document.querySelector('#description-input');
-                        const priceInput = document.querySelector('#price-input');
+// Fetch all books from the server
+fetch('http://localhost:3000/books')
+  .then(response => response.json())
+  .then(data => {
+    // Iterate over the books array and create a row for each book
+    data.forEach(book => {
+      const row = `
+        <tr>
+          <td>${book.title}</td>
+          <td>${book.description}</td>
+          <td>${book.price}</td>
+          <td>
+            <button class="edit-btn" data-id="${book.id}">Edit</button>
+            <button class="delete-btn" data-id="${book.id}">Delete</button>
+          </td>
+        </tr>
+      `;
+      tableBody.insertAdjacentHTML('beforeend', row);
+    });
+  })
+  .catch(error => console.error(error));
+Click "Submit" button to add a new book with properties: title, description, price (id is auto-generated)
+To add a new book, you can create a form in HTML and listen to the submit event. Once the form is submitted, you can make a POST request to the server to add the new book.
 
-                        addForm.addEventListener('submit', event => {
-                        event.preventDefault();
-                        
-                        const newBook = {
-                            title: titleInput.value,
-                            description: descInput.value,
-                            price: priceInput.value
-                        };
-                        
-                        fetch('http://localhost:3000/books', {
-                            method: 'POST',
-                            headers: {
-                            'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(newBook)
-                        })
-                            .then(response => response.json())
-                            .then(book => {
-                            const li = document.createElement('li');
-                            li.textContent = `${book.title} - ${book.description} - ${book.price}`;
-                            bookList.appendChild(li);
-                            titleInput.value = '';
-                            descInput.value = '';
-                            priceInput.value = '';
-                            })
-                            .catch(error => console.error(error));
-                        });
+<pre class="wd">
+    // main.js
 
---------------------------------------------------------------------------------------------------
+    const form = document.querySelector('#book-form');
+    
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+    
+      // Get form data
+      const formData = new FormData(form);
+      const title = formData.get('title');
+      const description = formData.get('description');
+      const price = formData.get('price');
+    
+      // Create a new book object
+      const book = {
+        title,
+        description,
+        price
+      };
+    
+      // Add the new book to the server
+      fetch('http://localhost:3000/books', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(book)
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Add the new book to the table
+          const row = `
+            <tr>
+              <td>${data.title}</td>
+              <td>${data.description}</td>
+              <td>${data.price}</td>
+              <td>
+                <button class="edit-btn" data-id="${data.id}">Edit</button>
+                <button class="delete-btn" data-id="${data.id}">Delete</button>
+              </td>
+            </tr>
+          `;
+          tableBody.insertAdjacentHTML('beforeend', row);
+          // Clear the form
+          form.reset();
+        })
+        .catch(error => console.error(error));
+    });
+    Click "Update" button to edit a book and save to the server-side
+    To edit a book, you can listen to the click event on the Edit button and populate a form with the book data. Once the form is submitted, you can make a PUT request to the server to update the book.
+    js
+    Copy code
+    // main.js
+    
+    // Listen to the click event on the Edit button
+    tableBody.addEventListener('click', event => {
+      if (event.target.classList.contains('edit-btn')) {
+        const id = event.target.dataset.id;
+        // Get the book data from the server
+        fetch(`http://localhost:3000/books/${id}`)
+</pre>
 
-            <h3>Edit a book when the "Update" button is clicked:</h3>
-
-
-                                        const editForm = document.querySelector('#edit-form');
-                            const editTitleInput = document.querySelector('#edit-title-input');
-                            const editDescInput = document.querySelector('#edit-description-input');
-                            const editPriceInput = document.querySelector('#edit-price-input');
-                            let bookIdToUpdate;
-
-                            bookList.addEventListener('click', event => {
-                            if (event.target.tagName === 'BUTTON') {
-                                const button = event.target;
-                                const li = button.parentNode;
-                                const bookData = li.textContent.split(' - ');
-                                const bookId = li.dataset.id;
-                                bookIdToUpdate = bookId;
-                                editTitleInput.value = bookData[0];
-                                editDescInput.value = bookData[1];
-                                editPriceInput.value = bookData[2];
-                                editForm.classList.remove('hidden');
-                            }
-                            });
-
-                            editForm.addEventListener('submit', event => {
-                            event.preventDefault();
-                            
-                            const updatedBook = {
-                                title: editTitleInput.value,
-                                description: editDescInput.value,
-                                price: editPriceInput.value
-                            };
-                            
-                            fetch(`http://localhost:3000/books/${bookIdToUpdate}`, {
-                                method: 'PUT',
-                                headers: {
-                                'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(updatedBook)
-                            })
-                                .then(response => response.json())
-                                .then(book => {
-                                const li = document.querySelector(`li[data-id="${bookIdToUpdate}"]`);
-                                li.textContent = `${book.title} - ${book.description} - ${book.price}`;
-                                editForm.classList.add('hidden');
-                                editTitleInput.value = '';
-                                editDescInput.value = '';
-                                editPriceInput.value = '';
-                                })
-                                .catch(error => console.error(error));
-                            });
-
-
---------------------------------------------------------------------------------------------------------
-
-<h3>Remove a book when the "Delete" button is clicked:</h3>
-
-                        bookList.addEventListener('click', event => {
-                            if (event.target.tagName === 'BUTTON') {
-                            const button = event.target;
-                            const li = button.parentNode;
-                            const bookId = li.dataset.id;
-                            
-                            fetch(`http://localhost:3000/books/${bookId}`, {
-                                method: 'DELETE'
-                            })
-                                .then(response => {
-                                if (response.ok) {
-                                    li.remove();
-                                }
-                                })
-                                .catch(error => console.error(error));
-                            }
-                        });
-                                                
-                                    
-
-    </pre>
+   
+    
 </body>
 </html>
