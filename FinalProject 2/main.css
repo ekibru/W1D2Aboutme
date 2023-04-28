@@ -1,0 +1,53 @@
+
+table,th,tr,td{
+    border: solid 1px;
+
+}
+
+
+
+table{
+    width: 100%;
+}
+.addBtn{
+    width: 100%;
+}
+#play{
+    width: 100%;
+}
+#repeat,#shuffle {
+    border-radius: 50px;
+}
+#username, #password{
+    
+    font-weight: bold;
+    margin-top: 25px;
+    background-color:white;
+}
+
+
+.logn{
+    background-color:rgb(41, 113, 158);
+    padding-left: 600px;
+    height: 300px;
+    color: white;
+    font-size: 30px;
+}
+.inp{
+    width: 250px;
+    height: 40px;
+}
+.button{
+    background-color: white;
+    width: 75px;
+    height: 38px;
+   margin-left: 150px;
+}
+button:hover{
+    background-color: gray;
+    color: blue
+}
+h1{
+    text-align: center;
+    color: red;
+}
